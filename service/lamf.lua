@@ -36,4 +36,5 @@ end;
 
 skynet.start(function()
 	startConsole();
+	skynet.newservice "HTTP_Gateway";
 end);
