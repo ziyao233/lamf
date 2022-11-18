@@ -2,7 +2,7 @@
 --	lamf
 --	Main Controller
 --	File:/service/lamf.lua
---	Date:2022.11.10
+--	Date:2022.11.19
 --	By MIT License.
 --	Copyright (c) 2022 Ziyao.
 --]]
@@ -36,5 +36,6 @@ end;
 
 skynet.start(function()
 	startConsole();
-	skynet.newservice "HTTP_Gateway";
+	local gatewayId = skynet.newservice "HTTP_Gateway";
+	skynet.send(gatewayId,"lua","publish",skynet.newservice("dummy"),"/","url","raw");
 end);
